@@ -4,7 +4,7 @@ public class Tree {
 	Object[] array;
 	
 	public Tree () { //initialization
-		array = new Object [8];
+		array = new Object [100];
 	}
 	
 	public boolean empty () { //empty?
@@ -17,9 +17,9 @@ public class Tree {
 	
 	
 	//calculate indices for..
-	public int left (int i ) { return (2*i); };
-	public int right (int i ) { return (2*i) + 1; };
-	public int parent (int i ) { return i / 2; };
+	public static int left (int i ) { return (2*i); };
+	public static int right (int i ) { return (2*i) + 1; };
+	public static int parent (int i ) { return i / 2; };
 	
 	public Object getData (int i) { //getter & setter
 		if (i < 0 || i >= array.length) return null;
