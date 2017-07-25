@@ -1,7 +1,7 @@
 package treeHomework;
 
 public class Tree {
-	Object[] array;
+	private static Object[] array; //not sure about private static
 	
 	public Tree () { //initialization
 		array = new Object [100];
@@ -21,7 +21,7 @@ public class Tree {
 	public static int right (int i ) { return (2*i) + 1; };
 	public static int parent (int i ) { return i / 2; };
 	
-	public Object getData (int i) { //getter & setter
+	public static Object getData (int i) { //getter & setter
 		if (i < 0 || i >= array.length) return null;
 		return array[i];
 	}
@@ -54,6 +54,24 @@ public class Tree {
         printPostorder (right (i)); //R
         System.out.println (getData (i)); //Root 
     } 
+	
+	public static void postOrderNoRecursion() {
+		int i = 1;
+		while (getData(left(i)) != null) {
+			i = left(i);
+		}
+		System.out.println(getData(i)); //check where we are..
+		while (i!=1) { //loops
+			if (getData(left(i)) != null) {
+				i = left(i);
+			} else if (getData(right(i)) != null) {
+				i = right(i);
+			} else if (getData(parent(i)) != null) {
+				i = parent(i);
+			}
+			System.out.println(getData(i));
+		}
+	}
 	
 	public void printInorder (int i) {
 		if (getData (i) == null) return;       
