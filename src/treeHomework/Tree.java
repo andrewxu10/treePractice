@@ -1,5 +1,6 @@
 package treeHomework;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Stack;
 
@@ -73,13 +74,35 @@ public class Tree {
 		}
 	}
 	
-
-	
 	public void printInorder (int i) {
 		if (getData (i) == null) return;       
 		printInorder (left (i)); //L
 		System.out.println (getData (i)); //Root
 		printInorder (right (i)); //R
+	}
+	
+	public void printAllPaths() { //handler
+		int[] arr = new int[10]; //NOTE! set to height of the tree
+		printAllPathsRecursion(1, arr, 0);
+	}
+	
+	private void printAllPathsRecursion(int node, int[] arr, int level) {
+		if(node == 1) { //root
+			arr[level] = (int) getData(node);
+			level++;
+		}
+		if(getData(left(node)) != null) {
+			arr[level] = (int) getData(left(node));
+			printAllPathsRecursion(left(node), arr, level+1);
+		}
+		if(getData(right(node)) != null) {
+			arr[level] = (int) getData(right(node));
+			printAllPathsRecursion(right(node), arr, level+1);
+		}
+		if(getData(right(node)) == null && getData(left(node)) == null) {
+			System.out.println(Arrays.toString(arr));
+		}
+		//arr[level] = null; //why don't i need to reset the values..? figure this out
 	}
 
 	

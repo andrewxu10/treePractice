@@ -19,8 +19,8 @@ public class treeTraversals {
 		tree.setData(7, 9);
 		
 		System.out.println(Arrays.toString(tree.array));
-		tree.postOrderNoRecursion();
-		
+		//tree.postOrderNoRecursion();
+		tree.printAllPaths();
 		
 		//inOrderPrint(tree,1);
 		//System.out.println("end");
