@@ -18,8 +18,12 @@ public class treeTraversals {
 		tree.setData(6, 7);
 		tree.setData(7, 9);
 		
-		inOrderPrint(tree,1);
-		System.out.println("end");
+		System.out.println(Arrays.toString(tree.array));
+		tree.postOrderNoRecursion();
+		
+		
+		//inOrderPrint(tree,1);
+		//System.out.println("end");
 		
 		Tree tree1 = new Tree();
 		tree1.setData(1, 15);
@@ -30,13 +34,15 @@ public class treeTraversals {
 		tree1.setData(6, 17);
 		tree1.setData(7, 19);
 		
+		
+		
 	//		int[] a = {1, 2, 3, 5, 7, 8, 9, 11, 12, 13, 15, 17, 18, 19};
 	//		Tree input = new Tree();
 	//		Tree trial = buildTree(a, 0, a.length - 1, 1, input);
 	//		trial.printInorder(1);
 
-		Tree treeA = (mergeTrees(tree,tree1));
-		treeA.printInorder(1);
+//		Tree treeA = (mergeTrees(tree,tree1));
+//		treeA.printInorder(1);
 
 		//treeA.printInorder(1);
 		

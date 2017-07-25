@@ -1,7 +1,10 @@
 package treeHomework;
 
+import java.util.HashSet;
+import java.util.Stack;
+
 public class Tree {
-	private static Object[] array; //not sure about private static
+	static Object[] array; //not sure about private static
 	
 	public Tree () { //initialization
 		array = new Object [100];
@@ -55,23 +58,22 @@ public class Tree {
         System.out.println (getData (i)); //Root 
     } 
 	
-	public static void postOrderNoRecursion() {
-		int i = 1;
-		while (getData(left(i)) != null) {
-			i = left(i);
+	public void postOrderNoRecursion() {
+		Stack<Integer> s1 = new Stack<Integer>();
+		Stack<Integer> output = new Stack<Integer>();
+		s1.push(1); //seed root
+		
+		while(!s1.isEmpty()) { //build output stack with help from s1 stack
+			output.push(s1.pop());
+			if(getData(left(output.peek())) != null) s1.push(left(output.peek()));
+			if(getData(right(output.peek())) != null) s1.push(right(output.peek()));
 		}
-		System.out.println(getData(i)); //check where we are..
-		while (i!=1) { //loops
-			if (getData(left(i)) != null) {
-				i = left(i);
-			} else if (getData(right(i)) != null) {
-				i = right(i);
-			} else if (getData(parent(i)) != null) {
-				i = parent(i);
-			}
-			System.out.println(getData(i));
+		while(!output.isEmpty()) { //empty out the output
+			System.out.println(getData(output.pop()));
 		}
 	}
+	
+
 	
 	public void printInorder (int i) {
 		if (getData (i) == null) return;       
