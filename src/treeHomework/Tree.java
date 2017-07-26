@@ -16,7 +16,12 @@ public class Tree {
 	}
 	
 	public int size () { //size even if empty
-		return array.length;
+		//return array.length;
+		int j = 0;
+		for(int i = 0; i < array.length; i++) {
+			if (array[i] != null) j++;
+		}
+		return j;
 	}
 	
 	
@@ -82,10 +87,16 @@ public class Tree {
 	}
 	
 	public void printAllPaths() { //handler
-		int[] arr = new int[10]; //NOTE! set to height of the tree
+		//int[] arr = new int[10]; //NOTE! set to height of the tree
+		int[] arr = new int[log2(size()) + 1]; //+1 just in case. will investigate later
 		printAllPathsRecursion(1, arr, 0);
 	}
 	
+	private int log2(int input) {
+		// TODO Auto-generated method stub
+		return (int) (Math.log(input) / Math.log(2));
+	}
+
 	private void printAllPathsRecursion(int node, int[] arr, int level) {
 		if(node == 1) { //root
 			arr[level] = (int) getData(node);
