@@ -7,6 +7,30 @@ import java.util.Iterator;
 public class treeTraversals {
 	public static void main(String[] args) {
 		
+		DoublyLinkedListImpl<Integer> dub = new DoublyLinkedListImpl();
+		//0-1-2-6
+		dub.addFirst(1);
+		dub.addLast(2);
+		dub.addLast(6);
+		dub.addFirst(0);
+
+		DoublyLinkedListImpl<Integer> middle = new DoublyLinkedListImpl();
+		middle.addFirst(17);
+		
+		DoublyLinkedListImpl<Integer> right = new DoublyLinkedListImpl();
+		//13-9-44-2
+		right.addFirst(9);
+		right.addLast(44);
+		right.addLast(2);
+		right.addFirst(13);
+		
+			//Tree.combineDoubLists(dub, middle);
+		System.out.println("size: " + dub.size());
+		
+		System.out.println(dub.size());
+		System.out.println(middle.size());
+		System.out.println(right.size());
+		
 		int root = 1;
 		
 		Tree tree = new Tree();

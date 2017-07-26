@@ -115,6 +115,41 @@ public class Tree {
 		}
 		//arr[level] = null; //why don't i need to reset the values..? figure this out
 	}
-
 	
+//	public DoublyLinkedListImpl flatten (int node) { //turn tree into sorted doubly linked list
+//		if(isLeaf(node)) {
+//			DoublyLinkedListImpl<Integer> left = new DoublyLinkedListImpl();
+//			left.addFirst((Integer) getData(left(node)));
+//			
+//			DoublyLinkedListImpl<Integer> middle = new DoublyLinkedListImpl();
+//			middle.addFirst((Integer) getData(node));
+//			
+//			DoublyLinkedListImpl<Integer> right = new DoublyLinkedListImpl();
+//			right.addFirst((Integer) getData(right(node)));
+//			
+//			combineDoubLists(left, middle);
+//			combineDoubLists(left, right);
+//			//generateDoubList(flatten(left(node)), node, flatten(right(node)))
+//		} else {
+//			DoublyLinkedListImpl<Integer> middle = new DoublyLinkedListImpl();
+//			middle.addFirst((Integer) getData(node));
+//			
+//			//combineDoubLists(flatten(left(node)), middle);
+//			combineDoubLists()
+//		}
+//	}
+//	
+//	public static void combineDoubLists(DoublyLinkedListImpl left, DoublyLinkedListImpl right) {
+//		while(right.size() > 0) {
+//			left.addLast(right.removeLast());
+//		}
+//	}
+	
+	private boolean isLeaf(int node) {
+		if(getData(left(node)) != null || getData(right(node)) !=null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

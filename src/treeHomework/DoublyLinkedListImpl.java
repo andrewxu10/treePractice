@@ -99,6 +99,10 @@ public class DoublyLinkedListImpl<E> {
     public E removeFirst() {
         if (size == 0) throw new NoSuchElementException();
         Node tmp = head;
+        if (size == 1) {
+        	size = 0;
+        	return tmp.element;
+        }
         head = head.next;
         head.prev = null;
         size--;
@@ -113,6 +117,10 @@ public class DoublyLinkedListImpl<E> {
     public E removeLast() {
         if (size == 0) throw new NoSuchElementException();
         Node tmp = tail;
+        if (size == 1) {
+        	size = 0;
+        	return tmp.element;
+        }
         tail = tail.prev;
         tail.next = null;
         size--;
